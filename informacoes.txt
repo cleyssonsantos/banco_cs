@@ -1,0 +1,32 @@
+Sobre pipenv escolhido:
+
+Escolhi o pipenv e não o pip pois o pipenv por mais que é 
+mantido pela mesma galera do pip, no pipenv conseguimos trabalhar
+com manifesto dentro da nossa aplicação separando dependência 
+de desenvolvimento, de produção e também cria um lock com as versões
+das libs que vamos instalando, então se já tem esse lock, quando
+reinstalamos ele já vai instalar rapidamente porque não precisa
+fazer as analises das dependências.
+Pipenv trabalha com conceito, que é comum na comunidade Python
+chamar de virtualenv, diferente se usarmos o pip apenas, todas
+as libs seriam ligadas ao python global da maquina.
+Virtualenv é uma ideia criada na comunidade python para criar 
+pequenos ambientes para nossas aplicações, pois cada app pode
+ter suas libs e não dependemos de lib global.
+
+Ex: pip install django -> Seriviria para todos os projetos pois a lib seria global.
+
+Sobre segurança em imagens específicas que trabalham como root, como por exemplo a python:3.10.2-slim:
+
+# Isso faz com que não trabalhemos com usuario root por questão de segurança. Com isso teremos umna pastinha dentro do container /home/python
+RUN useradd -ms /bin/bash python
+
+# Usando o usuario criado na linha 5
+USER python
+
+# Informações dos arquivos do projeto
+Dentro de .vscode em settings.json temos 2 argumentos:
+python.defaultInterpreterPath   -> Criamos uma referência para selecionar o interpretador do venv, garantindo compatibilidade em qualquer computador a ser executado.
+python.terminal.activateEnvironment  -> Instância para garantir que o container já execute no ambiente virtual do venv, não sendo necessario de pipenv shell.
+
+O arquivo pipfile e pipfilelock é um manifesto (como se fosse o package.json do Node ou composer.json do PHP). Esses arquivos é criado na instalação do pipenv install django.
