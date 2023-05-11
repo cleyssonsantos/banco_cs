@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  banco:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=banco
+
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./app:/app
+    depends_on:
+      - banco
