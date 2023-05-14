@@ -1,10 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "af42abefb766e975f7680f10368735353569fb4fe0114e59496a7202658362fc"
+            "sha256": "4ac704c58b1c6fa131c1847b744da4a08400f907d0da6fbf295562b10338c91c"
         },
         "pipfile-spec": 6,
         "requires": {
+            "psycopg2-binary": "2.9.6",
             "python_version": "3.11"
         },
         "sources": [
@@ -31,6 +32,14 @@
             ],
             "index": "pypi",
             "version": "==4.2.1"
+        },
+        "psycopg2-binary": {
+            "hashes": [
+                "sha256:f81e65376e52f03422e1fb475c9514185669943798ed019ac50410fb4c4df232",
+                "sha256:ffe9dc0a884a8848075e576c1de0290d85a533a9f6e9c4e564f19adf8f6e54a7"
+            ],
+            "index": "pypi",
+            "version": "==2.9.6"
         },
         "sqlparse": {
             "hashes": [
